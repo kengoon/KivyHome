@@ -36,7 +36,7 @@ def _reset_db():
     if exists(file):
         backup = sqlite3.connect(file)
         new = sqlite3.connect('config.db')
-        query = "".join(line for line in backup.iterdump())
+        query = "".join(backup.iterdump())
         new.executescript(query)
 
         return new

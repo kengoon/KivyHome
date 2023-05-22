@@ -6,7 +6,4 @@ __all__ = ( 'importer', )
 def importer(mod, cls):
     module = import_module(mod)
 
-    if not cls:
-        return module
-
-    return getattr(module, cls)
+    return module if not cls else getattr(module, cls)
